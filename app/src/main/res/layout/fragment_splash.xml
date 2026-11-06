@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashLogoGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.31" />
+
+    <ImageView
+        android:id="@+id/imgSplashLogo"
+        android:layout_width="@dimen/_88dp"
+        android:layout_height="@dimen/_88dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/splashLogoGuide" />
+
+    <LinearLayout
+        android:id="@+id/splashWordmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_2dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgSplashLogo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pacifico"
+            android:text="@string/love_splash"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_32sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/counter_splash"
+            android:textColor="@color/primary_pink"
+            android:textSize="@dimen/text_size_32sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/splashProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/tvSplashDisclaimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1">
+
+        <View
+            android:layout_width="@dimen/_8dp"
+            android:layout_height="@dimen/_8dp"
+            android:layout_marginHorizontal="@dimen/spacing_2dp"
+            android:background="@drawable/bg_indicator_inactive" />
+        <View
+            android:layout_width="@dimen/_8dp"
+            android:layout_height="@dimen/_8dp"
+            android:layout_marginHorizontal="@dimen/spacing_2dp"
+            android:background="@drawable/bg_indicator_inactive" />
+
+        <View
+            android:layout_width="@dimen/_8dp"
+            android:layout_height="@dimen/_8dp"
+            android:layout_marginHorizontal="@dimen/spacing_2dp"
+            android:background="@drawable/bg_indicator_inactive" />
+
+        <View
+            android:layout_width="@dimen/_8dp"
+            android:layout_height="@dimen/_8dp"
+            android:layout_marginHorizontal="@dimen/spacing_2dp"
+            android:background="@drawable/bg_indicator_active" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvSplashDisclaimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_48dp"
+        android:fontFamily="@font/plus_jakarta_sans_regular"
+        android:text="@string/splash_ads_disclaimer"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_size_16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

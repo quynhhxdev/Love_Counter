@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomNavContainer"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_64dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/_16dp">
+
+    <!-- Tab 1: Home -->
+    <LinearLayout
+        android:id="@+id/tabHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_4dp">
+
+        <ImageView
+            android:id="@+id/imgTabHome"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
+            android:contentDescription="@string/home_tab"
+            android:src="@drawable/ic_home"
+            app:tint="@color/secondary_text" />
+
+        <TextView
+            android:id="@+id/tvTabHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2dp"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/home_tab"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size_12sp" />
+    </LinearLayout>
+
+    <!-- Tab 2: Love test -->
+    <LinearLayout
+        android:id="@+id/tabLoveTest"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_4dp">
+
+        <ImageView
+            android:id="@+id/imgTabLoveTest"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:contentDescription="@string/love_test_tab"
+            android:src="@drawable/ic_love_test"
+            app:tint="@color/secondary_text" />
+
+        <TextView
+            android:id="@+id/tvTabLoveTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2dp"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:text="@string/love_test_tab"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size_12sp" />
+    </LinearLayout>
+
+    <!-- Tab 3: Memory -->
+    <LinearLayout
+        android:id="@+id/tabMemory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/_4dp">
+
+        <ImageView
+            android:id="@+id/imgTabMemory"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
+            android:contentDescription="@string/memory_tab"
+            android:src="@drawable/ic_memory"
+            app:tint="@color/secondary_text" />
+
+        <TextView
+            android:id="@+id/tvTabMemory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2dp"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:text="@string/memory_tab"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size_12sp" />
+    </LinearLayout>
+
+</LinearLayout>

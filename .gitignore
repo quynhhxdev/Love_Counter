@@ -1,0 +1,37 @@
+# Android build outputs
+.gradle/
+**/build/
+captures/
+
+# Kotlin cache
+.kotlin/
+
+# Local configuration
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# APK / AAB
+*.apk
+*.aab
+
+# Native build
+.externalNativeBuild/
+.cxx/
+
+# Signing files - never commit private signing credentials
+*.jks
+*.keystore
+
+# Environment / secrets
+.env
+.env.*

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_20dp">
+
+    <!-- Month & Year Header with Arrows -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_16dp">
+
+        <ImageView
+            android:id="@+id/btnPrevMonth"
+            android:layout_width="@dimen/_32dp"
+            android:layout_height="@dimen/_32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/previous_month"
+            android:padding="@dimen/spacing_6dp"
+            android:src="@drawable/ic_btn_previous" />
+
+        <TextView
+            android:id="@+id/tvMonthYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:gravity="center"
+            android:text="@string/calendar_month_year_placeholder"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_16sp" />
+
+        <ImageView
+            android:id="@+id/btnNextMonth"
+            android:layout_width="@dimen/_32dp"
+            android:layout_height="@dimen/_32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/next_month"
+            android:padding="@dimen/spacing_6dp"
+            android:src="@drawable/ic_btn_next" />
+
+    </LinearLayout>
+
+    <!-- Weekday Headers -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/_8dp">
+
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="@font/plus_jakarta_sans_medium" android:gravity="center" android:text="@string/weekday_sun" android:textColor="@color/secondary_text" android:textSize="@dimen/text_size_12sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="@font/plus_jakarta_sans_medium" android:gravity="center" android:text="@string/weekday_mon" android:textColor="@color/secondary_text" android:textSize="@dimen/text_size_12sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="@font/plus_jakarta_sans_medium" android:gravity="center" android:text="@string/weekday_tue" android:textColor="@color/secondary_text" android:textSize="@dimen/text_size_12sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="@font/plus_jakarta_sans_medium" android:gravity="center" android:text="@string/weekday_wed" android:textColor="@color/secondary_text" android:textSize="@dimen/text_size_12sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="@font/plus_jakarta_sans_medium" android:gravity="center" android:text="@string/weekday_thu" android:textColor="@color/secondary_text" android:textSize="@dimen/text_size_12sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="@font/plus_jakarta_sans_medium" android:gravity="center" android:text="@string/weekday_fri" android:textColor="@color/secondary_text" android:textSize="@dimen/text_size_12sp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:fontFamily="@font/plus_jakarta_sans_medium" android:gravity="center" android:text="@string/weekday_sat" android:textColor="@color/secondary_text" android:textSize="@dimen/text_size_12sp" />
+
+    </LinearLayout>
+
+    <!-- Calendar Days Grid (GridView) -->
+    <GridView
+        android:id="@+id/calendarGridView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_240dp"
+        android:horizontalSpacing="@dimen/_4dp"
+        android:numColumns="7"
+        android:verticalSpacing="@dimen/_4dp" />
+
+    <!-- Bottom Action Buttons: Cancel and Save -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelCalendar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42dp"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_tab_container"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSaveCalendar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_42dp"
+            android:layout_marginStart="@dimen/_8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_button_pink"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

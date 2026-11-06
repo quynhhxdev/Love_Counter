@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home screen content hosted by MainActivity's NavigationManager. -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- Top Hero Background Sunset Photo -->
+    <ImageView
+        android:id="@+id/imgHero"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_top_home"
+        app:layout_constraintHeight_percent="0.41"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Top Header Action Icons -->
+    <ImageView
+        android:id="@+id/btnSetting"
+        android:layout_width="@dimen/_32dp"
+        android:layout_height="@dimen/_32dp"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_32dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/access_settings"
+        android:padding="@dimen/_4dp"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/btnGallery"
+        android:layout_width="@dimen/_32dp"
+        android:layout_height="@dimen/_32dp"
+        android:layout_marginTop="@dimen/_32dp"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/access_gallery"
+        android:padding="@dimen/_4dp"
+        android:src="@drawable/ic_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <!-- Main White Rounded Container -->
+    <FrameLayout
+        android:id="@+id/whiteContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="-18dp"
+        android:background="@drawable/bg_top_rounded_clip"
+        android:clipToOutline="true"
+        android:outlineProvider="background"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgHero">
+
+        <!-- Pink Cloud Background -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_pink_cloud"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null" />
+    </FrameLayout>
+
+    <!-- Overlapping Chibi Couple Illustration -->
+
+    <!-- Horizontal Three-Column Profiles & Counter Layout -->
+
+    <ImageView
+        android:id="@+id/imgCoupleIllustration"
+        android:layout_width="@dimen/_220dp"
+        android:layout_height="@dimen/_180dp"
+        android:layout_marginBottom="@dimen/_45dp"
+        android:contentDescription="@string/couple"
+        android:elevation="@dimen/_4dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_couple"
+        app:layout_constraintBottom_toTopOf="@+id/llProfiles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llProfiles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:baselineAligned="false"
+        android:elevation="@dimen/_4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Left Column: Sasuke Profile -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.example.lovecounter.component.common.ProfileAvatarView
+                android:id="@+id/avatarUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Center Column: Love Counter -->
+        <LinearLayout
+            android:id="@+id/llLoveCounter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/_72dp"
+                android:layout_height="@dimen/_65dp">
+
+                <com.example.lovecounter.component.common.LiquidHeartView
+                    android:id="@+id/liquidHeartHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:lh_progress="90"
+                    app:lh_tiltEnabled="true"
+                    app:lh_waveEnabled="true" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvDaysCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-2dp"
+                        android:fontFamily="@font/plus_jakarta_sans_medium"
+                        android:text="@string/day"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_12sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:fontFamily="@font/plus_jakarta_sans"
+                android:gravity="center"
+                android:text="@string/tap_to_start_date"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/text_size_12sp" />
+
+        </LinearLayout>
+
+        <!-- Right Column: Naruto Partner Profile -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.example.lovecounter.component.common.ProfileAvatarView
+                android:id="@+id/avatarPartner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

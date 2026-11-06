@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- Header Title "Memory" -->
+    <TextView
+        android:id="@+id/tvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56dp"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/spacing_20dp"
+        android:text="@string/memory_tab"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_size_20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Empty State Container (includes title, subtitle, and add button below text) -->
+    <LinearLayout
+        android:id="@+id/layoutEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeader">
+
+        <ImageView
+            android:layout_width="@dimen/_215dp"
+            android:layout_height="@dimen/_162dp"
+            android:contentDescription="@string/access_no_anniversary"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_avt_couple_watch_phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24dp"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/no_anniversary"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8dp"
+            android:fontFamily="@font/plus_jakarta_sans"
+            android:text="@string/preserve_anniversary"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <!-- Add Button right below text when empty (Image 1) -->
+        <FrameLayout
+            android:id="@+id/fabAddMemoryEmpty"
+            android:layout_width="@dimen/_60dp"
+            android:layout_height="@dimen/_60dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:background="@drawable/bg_circle_avatar"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/add"
+                android:src="@drawable/ic_btn_add" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- RecyclerView for Memories List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMemories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/_16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeader" />
+
+    <!-- Inline Add Button (+) right below RecyclerView when items < 4 -->
+    <FrameLayout
+        android:id="@+id/fabAddMemoryInline"
+        android:layout_width="@dimen/_60dp"
+        android:layout_height="@dimen/_60dp"
+        android:layout_marginTop="@dimen/spacing_10dp"
+        android:background="@drawable/bg_circle_avatar"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvMemories">
+
+        <ImageView
+            android:layout_width="@dimen/_24dp"
+            android:layout_height="@dimen/_24dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/add"
+            android:src="@drawable/ic_btn_add" />
+    </FrameLayout>
+
+    <!-- Pinned Bottom Add Button (+) when list >= 4 items -->
+    <FrameLayout
+        android:id="@+id/fabAddMemoryPinned"
+        android:layout_width="@dimen/_60dp"
+        android:layout_height="@dimen/_60dp"
+        android:layout_marginBottom="@dimen/_80dp"
+        android:background="@drawable/bg_circle_avatar"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/_24dp"
+            android:layout_height="@dimen/_24dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/add"
+            android:src="@drawable/ic_btn_add" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

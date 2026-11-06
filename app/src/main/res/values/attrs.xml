@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LiquidHeartView">
+        <attr name="lh_progress" format="float" />
+        <attr name="lh_tiltEnabled" format="boolean" />
+        <attr name="lh_waveEnabled" format="boolean" />
+        <attr name="lh_liquidColor" format="color" />
+        <attr name="lh_liquidSecondaryColor" format="color" />
+        <attr name="lh_heartBackgroundColor" format="color" />
+        <attr name="lh_strokeColor" format="color" />
+        <attr name="lh_strokeWidth" format="dimension" />
+        <attr name="lh_waveAmplitudeRatio" format="float" />
+        <attr name="lh_waveDurationMs" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ProfileAvatarView">
+        <attr name="avatarSize" format="dimension" />
+    </declare-styleable>
+</resources>

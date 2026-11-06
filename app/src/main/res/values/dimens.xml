@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Spacing, Margins & Paddings -->
+    <dimen name="spacing_1dp">1dp</dimen>
+    <dimen name="spacing_2dp">2dp</dimen>
+    <dimen name="spacing_4dp">4dp</dimen>
+    <dimen name="spacing_6dp">6dp</dimen>
+    <dimen name="spacing_8dp">8dp</dimen>
+    <dimen name="spacing_9dp">9dp</dimen>
+    <dimen name="spacing_10dp">10dp</dimen>
+    <dimen name="spacing_14dp">14dp</dimen>
+    <dimen name="spacing_18dp">18dp</dimen>
+    <dimen name="spacing_20dp">20dp</dimen>
+    <dimen name="spacing_24dp">24dp</dimen>
+    <dimen name="spacing_28dp">28dp</dimen>
+    <dimen name="spacing_30dp">30dp</dimen>
+    <dimen name="spacing_32dp">32dp</dimen>
+    <dimen name="spacing_36dp">36dp</dimen>
+    <dimen name="spacing_40dp">40dp</dimen>
+    <dimen name="spacing_44dp">44dp</dimen>
+    <dimen name="spacing_48dp">48dp</dimen>
+    <dimen name="spacing_64dp">64dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_size_10sp">10sp</dimen>
+    <dimen name="text_size_11sp">11sp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_13sp">13sp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_15sp">15sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="text_size_28sp">28sp</dimen>
+    <dimen name="text_size_30sp">30sp</dimen>
+    <dimen name="text_size_32sp">32sp</dimen>
+    <dimen name="text_size_36sp">36sp</dimen>
+    <dimen name="text_size_41sp">41sp</dimen>
+
+    <!-- Header & Component Heights -->
+    <dimen name="_56dp">56dp</dimen>
+    <dimen name="_50dp">50dp</dimen>
+    <dimen name="_42dp">42dp</dimen>
+    <dimen name="_46dp">46dp</dimen>
+    <dimen name="_48dp">48dp</dimen>
+    <dimen name="_44dp">44dp</dimen>
+    <dimen name="_45dp">45dp</dimen>
+    <dimen name="_60dp">60dp</dimen>
+    <dimen name="_64dp">64dp</dimen>
+    <dimen name="_65dp">65dp</dimen>
+    <dimen name="_72dp">72dp</dimen>
+    <dimen name="_76dp">76dp</dimen>
+    <dimen name="_210dp">210dp</dimen>
+    <dimen name="_156dp">156dp</dimen>
+
+    <!-- Icon Sizes -->
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_32dp">32dp</dimen>
+    <dimen name="_40dp">40dp</dimen>
+
+    <!-- Corner Radius -->
+    <dimen name="_2dp">2dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="_12dp">12dp</dimen>
+    <dimen name="_14dp">14dp</dimen>
+    <dimen name="_15dp">15dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+
+    <!-- Avatar Sizes -->
+    <dimen name="_80dp">80dp</dimen>
+    <dimen name="_88dp">88dp</dimen>
+    <dimen name="_90dp">90dp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_108dp">110dp</dimen>
+    <dimen name="_110dp">108dp</dimen>
+    <dimen name="_140dp">140dp</dimen>
+    <dimen name="_160dp">160dp</dimen>
+    <dimen name="_162dp">162dp</dimen>
+    <dimen name="_175dp">175dp</dimen>
+    <dimen name="_176dp">176dp</dimen>
+    <dimen name="_180dp">180dp</dimen>
+    <dimen name="_200dp">200dp</dimen>
+    <dimen name="_205dp">205dp</dimen>
+    <dimen name="_215dp">215dp</dimen>
+    <dimen name="_220dp">220dp</dimen>
+    <dimen name="_240dp">240dp</dimen>
+    <dimen name="_280dp">280dp</dimen>
+    <dimen name="_292dp">292dp</dimen>
+    <dimen name="_360dp">360dp</dimen>
+    <dimen name="_4dp">4dp</dimen>
+    <dimen name="_450dp">450dp</dimen>
+    <dimen name="_500dp">500dp</dimen>
+    <dimen name="_120dp">120dp</dimen>
+
+</resources>

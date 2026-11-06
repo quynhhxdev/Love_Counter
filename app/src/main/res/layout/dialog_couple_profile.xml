@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_20dp">
+
+    <!-- Top Drag Handle -->
+    <View
+        android:layout_width="@dimen/spacing_36dp"
+        android:layout_height="@dimen/_4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_4dp"
+        android:background="@drawable/bg_handle_bar" />
+
+    <!-- Title & Profile Selector Tabs -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/information"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_18sp" />
+
+    </RelativeLayout>
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- Avatar Image -->
+            <FrameLayout
+                android:layout_width="@dimen/_120dp"
+                android:layout_height="@dimen/_120dp"
+                android:background="@drawable/bg_circle_avatar">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_avt_boy"
+                    app:shapeAppearanceOverlay="@style/CircleImageView" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvChangePhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:fontFamily="@font/plus_jakarta_sans"
+                android:text="@string/tap_to_change_photo"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <!-- Input 1: Name -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="@string/name"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/spacing_14dp" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44dp"
+                android:layout_marginTop="@dimen/spacing_6dp"
+                android:background="@drawable/bg_input_box"
+                android:fontFamily="@font/plus_jakarta_sans"
+                android:hint="@string/enter_name"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="@dimen/spacing_14dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="#A0A0A5"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <TextView
+                android:id="@+id/tvErrorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_2dp"
+                android:fontFamily="@font/plus_jakarta_sans"
+                android:textColor="#FF174F"
+                android:textSize="@dimen/text_size_14sp"
+                android:visibility="gone" />
+
+            <!-- Input 2: Gender -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="@string/gender"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <RelativeLayout
+                android:id="@+id/btnGenderSelect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44dp"
+                android:layout_marginTop="@dimen/spacing_6dp"
+                android:background="@drawable/bg_input_box"
+                android:paddingHorizontal="@dimen/text_size_14sp">
+
+                <TextView
+                    android:id="@+id/tvGenderValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/plus_jakarta_sans"
+                    android:text="@string/male"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/dropdown"
+                    android:src="@drawable/ic_check"
+                    app:tint="@color/primary_text" />
+            </RelativeLayout>
+
+            <!-- Input 3: Birthday -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="@string/birthday"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <RelativeLayout
+                android:id="@+id/btnBirthdaySelect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44dp"
+                android:layout_marginTop="@dimen/spacing_6dp"
+                android:background="@drawable/bg_input_box"
+                android:paddingHorizontal="@dimen/text_size_14sp">
+
+                <TextView
+                    android:id="@+id/tvBirthdayValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/plus_jakarta_sans"
+                    android:hint="@string/date_format_hint"
+                    android:textColor="@color/primary_text"
+                    android:textColorHint="#A0A0A5"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/calendar"
+                    android:src="@drawable/ic_calendar"
+                    app:tint="@color/secondary_text" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvErrorBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_2dp"
+                android:fontFamily="@font/plus_jakarta_sans"
+                android:textColor="#FF174F"
+                android:textSize="@dimen/text_size_14sp"
+                android:visibility="gone" />
+
+            <!-- Save Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44dp"
+                android:layout_marginTop="@dimen/spacing_28dp"
+                android:layout_marginBottom="@dimen/_16dp"
+                android:background="@drawable/bg_button_pink"
+                android:fontFamily="@font/plus_jakarta_sans_bold"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_14sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

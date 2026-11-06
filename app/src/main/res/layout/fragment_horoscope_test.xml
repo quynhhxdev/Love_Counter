@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56dp"
+        android:paddingHorizontal="@dimen/_16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/_24dp"
+            android:layout_height="@dimen/_24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/horoscope_test"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Zodiac Selection Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btnLoveTest"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <!-- User Zodiac Slot -->
+        <LinearLayout
+            android:id="@+id/layoutUserZodiac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/_12dp">
+
+            <FrameLayout
+                android:layout_width="@dimen/_110dp"
+                android:layout_height="@dimen/_110dp"
+                android:background="@drawable/bg_circle_avatar"
+                android:padding="@dimen/_8dp">
+
+                <ImageView
+                    android:id="@+id/imgUserZodiac"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/access_user_zodiac"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_aries" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvUserZodiacName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="@string/zodiac_aries"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+
+        <!-- Infinity Icon -->
+        <ImageView
+            android:layout_width="@dimen/_60dp"
+            android:layout_height="@dimen/_60dp"
+            android:layout_marginHorizontal="@dimen/_16dp"
+            android:layout_marginBottom="@dimen/_24dp"
+            android:contentDescription="@string/access_infinity"
+            android:src="@drawable/ic_alpha" />
+
+        <!-- Partner Zodiac Slot -->
+        <LinearLayout
+            android:id="@+id/layoutPartnerZodiac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/_12dp">
+
+            <FrameLayout
+                android:layout_width="@dimen/_110dp"
+                android:layout_height="@dimen/_110dp"
+                android:background="@drawable/bg_circle_avatar"
+                android:padding="@dimen/_8dp">
+
+                <ImageView
+                    android:id="@+id/imgPartnerZodiac"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/access_partner_zodiac"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_leo" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvPartnerZodiacName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="@string/zodiac_leo"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Love Test Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoveTest"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48dp"
+        android:layout_marginHorizontal="@dimen/spacing_20dp"
+        android:layout_marginBottom="@dimen/_32dp"
+        android:background="@drawable/bg_button_pink"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
+        android:text="@string/love_test"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

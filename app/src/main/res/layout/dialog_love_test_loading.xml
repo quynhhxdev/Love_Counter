@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99000000"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/_24dp">
+
+    <com.example.lovecounter.component.common.LiquidHeartView
+        android:id="@+id/liquidHeartLoading"
+        android:layout_width="@dimen/_160dp"
+        android:layout_height="@dimen/_140dp"
+        app:lh_progress="0"
+        app:lh_tiltEnabled="true"
+        app:lh_waveEnabled="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_24dp"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
+        android:gravity="center"
+        android:text="@string/calculating_love"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8dp"
+        android:fontFamily="@font/plus_jakarta_sans"
+        android:gravity="center"
+        android:text="@string/discovering_compatibility"
+        android:textColor="#E0E0E0"
+        android:textSize="@dimen/text_size_13sp" />
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <!-- Circle Avatar with Pink Container -->
+    <FrameLayout
+        android:id="@+id/flAvatarContainer"
+        android:layout_width="@dimen/_90dp"
+        android:layout_height="@dimen/_90dp"
+        android:background="@drawable/bg_circle_avatar"
+        android:padding="@dimen/_2dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/CircleImageView" />
+    </FrameLayout>
+
+    <!-- Name Label -->
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_6dp"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <!-- Optional Gender & Age Layout -->
+    <LinearLayout
+        android:id="@+id/llGenderAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgGender"
+            android:layout_width="@dimen/_16dp"
+            android:layout_height="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_4dp"
+            android:contentDescription="@string/access_gender" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_14sp" />
+    </LinearLayout>
+
+</LinearLayout>

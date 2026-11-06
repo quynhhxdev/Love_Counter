@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_input_box"
+    android:elevation="@dimen/spacing_6dp"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/_4dp">
+
+    <TextView
+        android:id="@+id/tvMale"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_36dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/plus_jakarta_sans"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_16dp"
+        android:text="@string/male"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <TextView
+        android:id="@+id/tvFemale"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_36dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/plus_jakarta_sans"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_16dp"
+        android:text="@string/female"
+        android:textColor="@color/primary_pink"
+        android:textSize="@dimen/text_size_14sp" />
+
+    <TextView
+        android:id="@+id/tvOther"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_36dp"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/plus_jakarta_sans"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/_16dp"
+        android:text="@string/other"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_size_14sp" />
+
+</LinearLayout>

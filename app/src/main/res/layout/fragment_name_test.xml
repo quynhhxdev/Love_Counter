@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_gradient">
+
+    <!-- Header -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_56dp"
+        android:paddingHorizontal="@dimen/_16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/_16dp"
+            android:layout_height="@dimen/_16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:text="@string/name_test"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/text_size_20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/btnLoveTest"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="@dimen/_24dp">
+
+            <!-- Couple Illustration behind/with pink heart background -->
+            <FrameLayout
+                android:layout_width="@dimen/_205dp"
+                android:layout_height="@dimen/_175dp">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_love"
+                    android:backgroundTint="@color/selected_lang_bg"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/couple"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_name_test" />
+            </FrameLayout>
+
+            <!-- Your name field -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="@string/your_name"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <EditText
+                android:id="@+id/etYourName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44dp"
+                android:layout_marginTop="@dimen/spacing_6dp"
+                android:background="@drawable/bg_input_box"
+                android:fontFamily="@font/plus_jakarta_sans"
+                android:hint="@string/your_name_hint"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="@dimen/text_size_14sp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="#A0A0A5"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <!-- Partner's name field -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16dp"
+                android:fontFamily="@font/plus_jakarta_sans_medium"
+                android:text="@string/partner_name"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <EditText
+                android:id="@+id/etPartnerName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_44dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/bg_input_box"
+                android:fontFamily="@font/plus_jakarta_sans"
+                android:hint="@string/partner_name_hint"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="@dimen/spacing_14dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="#A0A0A5"
+                android:textSize="@dimen/text_size_14sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Love Test Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLoveTest"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48dp"
+        android:layout_marginHorizontal="@dimen/spacing_20dp"
+        android:layout_marginBottom="@dimen/_32dp"
+        android:background="@drawable/bg_button_pink"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
+        android:text="@string/love_test"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_14sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
