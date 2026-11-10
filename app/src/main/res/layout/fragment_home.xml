@@ -72,11 +72,10 @@
 
     <!-- Horizontal Three-Column Profiles & Counter Layout -->
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgCoupleIllustration"
         android:layout_width="@dimen/_220dp"
         android:layout_height="@dimen/_180dp"
-        android:layout_marginBottom="@dimen/_45dp"
         android:contentDescription="@string/couple"
         android:elevation="@dimen/_4dp"
         android:scaleType="fitCenter"
@@ -90,7 +89,7 @@
         android:id="@+id/llProfiles"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="250dp"
+        android:layout_marginBottom="220dp"
         android:baselineAligned="false"
         android:elevation="@dimen/_4dp"
         android:gravity="center_vertical"
