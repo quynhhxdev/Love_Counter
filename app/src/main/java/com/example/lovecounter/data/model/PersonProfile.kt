@@ -1,6 +1,6 @@
 package com.example.lovecounter.data.model
 
-import com.example.lovecounter.utils.DateUtils
+import com.example.lovecounter.utils.handle.DateUtils
 import java.util.Calendar
 
 data class PersonProfile(

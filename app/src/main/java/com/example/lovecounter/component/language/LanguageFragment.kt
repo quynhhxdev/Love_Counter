@@ -11,10 +11,14 @@ import com.example.lovecounter.R
 import com.example.lovecounter.base.fragment.BaseFragment
 import com.example.lovecounter.component.onboarding.OnboardingFragment
 import com.example.lovecounter.databinding.FragmentLanguageBinding
-import com.example.lovecounter.utils.LanguageManager
+import com.example.lovecounter.utils.FirebaseConfigManager
+import com.example.lovecounter.utils.manger.LanguageManager
 import com.example.lovecounter.utils.Logger
-import com.example.lovecounter.utils.gone
-import com.example.lovecounter.utils.visible
+import com.example.lovecounter.utils.ads.AdPlacement
+import com.example.lovecounter.utils.ads.NativeAdsUtils
+import com.example.lovecounter.utils.ext.gone
+import com.example.lovecounter.utils.ext.visible
+import com.google.android.gms.ads.nativead.NativeAdView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
@@ -60,6 +64,8 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
                     languageManager.changeLanguage(selected.languageCode)
                     if (!isAdded) return@launch
 
+                    NativeAdsUtils.destroyNative(AdPlacement.LANGUAGE_NATIVE)
+
                     if (isInitialSetup) {
                         navigationManager.replaceRoot(OnboardingFragment())
                     } else {
@@ -96,7 +102,43 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         }
     }
 
-    override fun initData() = viewModel.loadLanguages()
+    override fun initData() {
+        viewModel.loadLanguages()
+        if (!FirebaseConfigManager.isNativeAdsEnabled()) {
+            binding.flNativeAdContainer.gone()
+            return
+        }
+        // Show medium shimmer placeholder immediately while loading
+        binding.flNativeAdContainer.visible()
+        binding.flNativeAdContainer.removeAllViews()
+        layoutInflater.inflate(com.ads.admob.R.layout.loading_native_ad_view_type1, binding.flNativeAdContainer, true)
+
+        val adUnitId = AdPlacement.TEST_NATIVE_ID
+        if (isInitialSetup) {
+            NativeAdsUtils.preloadNative(
+                requireContext().applicationContext,
+                AdPlacement.ONBOARDING_NATIVE,
+                adUnitId
+            )
+        }
+        NativeAdsUtils.preloadNative(requireContext().applicationContext, AdPlacement.LANGUAGE_NATIVE, adUnitId) { success ->
+            if (success && isAdded) {
+                val nativeAd = NativeAdsUtils.getPreloadedNative(AdPlacement.LANGUAGE_NATIVE)
+                if (nativeAd != null) {
+                    binding.flNativeAdContainer.removeAllViews()
+                    val adView = layoutInflater.inflate(com.ads.admob.R.layout.layout_native_ad_view_type1, binding.flNativeAdContainer, false) as? NativeAdView
+                    if (adView != null) {
+                        NativeAdsUtils.populateNativeAdView(nativeAd, adView)
+                        binding.flNativeAdContainer.addView(adView)
+                        binding.flNativeAdContainer.visible()
+                    }
+                }
+            } else if (isAdded) {
+                binding.flNativeAdContainer.visible()
+            }
+        }
+    }
+
     override fun initObserver() {
         viewModel.languages.observe(viewLifecycleOwner) { languages ->
             adapter.submitList(languages)

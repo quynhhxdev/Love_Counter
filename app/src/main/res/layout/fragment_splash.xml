@@ -68,9 +68,10 @@
             android:layout_height="@dimen/_8dp"
             android:layout_marginHorizontal="@dimen/spacing_2dp"
             android:background="@drawable/bg_indicator_inactive" />
+
         <View
-            android:layout_width="@dimen/_8dp"
-            android:layout_height="@dimen/_8dp"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/spacing_2dp"
             android:background="@drawable/bg_indicator_inactive" />
 

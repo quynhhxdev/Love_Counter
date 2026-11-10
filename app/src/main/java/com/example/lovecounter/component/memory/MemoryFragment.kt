@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-import com.example.lovecounter.utils.loadLocalPreview
+import com.example.lovecounter.utils.ext.loadLocalPreview
 import kotlinx.coroutines.CoroutineScope
 
 @AndroidEntryPoint
@@ -51,6 +51,9 @@ class MemoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Root-tab banner is owned by MainActivity so it persists between tabs.
+        binding.bannerContainer.visibility = View.GONE
 
         binding.rvMemories.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMemories.adapter = adapter
@@ -85,14 +88,16 @@ class MemoryFragment : Fragment() {
                     val layoutParams = binding.rvMemories.layoutParams as ConstraintLayout.LayoutParams
                     if (list.size >= 4) {
                         layoutParams.height = 0
-                        layoutParams.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
-                        layoutParams.bottomToTop = ConstraintLayout.LayoutParams.UNSET
+                        layoutParams.bottomToBottom = ConstraintLayout.LayoutParams.UNSET
+                        layoutParams.bottomToTop = R.id.bannerContainer
+                        layoutParams.verticalBias = 0.0f
                         binding.fabAddMemoryInline.visibility = View.GONE
                         binding.fabAddMemoryPinned.visibility = View.VISIBLE
                     } else {
                         layoutParams.height = ConstraintLayout.LayoutParams.WRAP_CONTENT
                         layoutParams.bottomToBottom = ConstraintLayout.LayoutParams.UNSET
-                        layoutParams.bottomToTop = ConstraintLayout.LayoutParams.UNSET
+                        layoutParams.bottomToTop = R.id.bannerContainer
+                        layoutParams.verticalBias = 0.0f
                         binding.fabAddMemoryInline.visibility = View.VISIBLE
                         binding.fabAddMemoryPinned.visibility = View.GONE
                     }

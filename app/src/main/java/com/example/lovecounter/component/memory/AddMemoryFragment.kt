@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.lovecounter.R
@@ -14,8 +15,9 @@ import com.example.lovecounter.data.repositories.ImageStorageRepository
 import com.example.lovecounter.data.repositories.MemoryRepository
 import com.example.lovecounter.databinding.FragmentAddMemoryBinding
 import com.example.lovecounter.navigation.navigationManager
-import com.example.lovecounter.utils.DateUtils
-import com.example.lovecounter.utils.loadLocalPreview
+import com.example.lovecounter.utils.handle.DateUtils
+import com.example.lovecounter.utils.ads.RewardAdsUtils
+import com.example.lovecounter.utils.ext.loadLocalPreview
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.io.File
@@ -68,6 +70,12 @@ class AddMemoryFragment : Fragment() {
             KEY_CAMERA_OUTPUT
         )
 
+        // Banner is owned and managed by MainActivity at the bottom of the screen
+        binding.bannerContainer.visibility = View.GONE
+
+        val rewardAdId = "ca-app-pub-3940256099942544/5224354917" // Google test rewarded ad ID
+        RewardAdsUtils.loadRewardAd(requireActivity(), rewardAdId)
+
         parentFragmentManager.setFragmentResultListener(DATE_PICKER_RESULT, viewLifecycleOwner) { _, result ->
             val dateMillis = result.getLong(LoveDatePickerDialogFragment.RESULT_DATE_MILLIS)
             selectedCalendar.timeInMillis = dateMillis
@@ -89,22 +97,34 @@ class AddMemoryFragment : Fragment() {
         photoSelectionHelper.pendingPhoto?.let { renderPhoto(it) }
 
         binding.btnSaveMemory.setOnClickListener {
-            saveMemory()
+            val title = binding.etMemoryTitle.text.toString().trim()
+            val date = binding.tvDateValue.text.toString().trim()
+
+            if (title.isEmpty()) {
+                Toast.makeText(requireContext(), R.string.please_enter_title, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (date.isEmpty()) {
+                Toast.makeText(requireContext(), R.string.please_select_date, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            AlertDialog.Builder(requireContext())
+                .setTitle("Save Memory")
+                .setMessage("Watch a short video ad to save your memory.")
+                .setPositiveButton("Watch Ad") { _, _ ->
+                    RewardAdsUtils.showRewardAd(requireActivity()) {
+                        saveMemory()
+                    }
+                }
+                .setNegativeButton("Cancel", null)
+                .show()
         }
     }
 
     private fun saveMemory() {
         val title = binding.etMemoryTitle.text.toString().trim()
         val date = binding.tvDateValue.text.toString().trim()
-
-        if (title.isEmpty()) {
-            Toast.makeText(requireContext(), R.string.please_enter_title, Toast.LENGTH_SHORT).show()
-            return
-        }
-        if (date.isEmpty()) {
-            Toast.makeText(requireContext(), R.string.please_select_date, Toast.LENGTH_SHORT).show()
-            return
-        }
 
         lifecycleScope.launch {
             binding.btnSaveMemory.isEnabled = false

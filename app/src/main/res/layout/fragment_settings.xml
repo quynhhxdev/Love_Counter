@@ -237,4 +237,12 @@
 
     </LinearLayout>
 
+    <!-- Banner Ad Container (Managed globally by MainActivity) -->
+    <FrameLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

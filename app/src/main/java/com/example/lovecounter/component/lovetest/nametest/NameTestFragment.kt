@@ -11,8 +11,10 @@ import com.example.lovecounter.component.common.LoveTestLoadingDialog
 import com.example.lovecounter.component.lovetest.result.TestResultFragment
 import com.example.lovecounter.databinding.FragmentNameTestBinding
 import com.example.lovecounter.navigation.navigationManager
-import com.example.lovecounter.utils.LoveTestHelper
-import com.example.lovecounter.utils.SpManager
+import com.example.lovecounter.utils.handle.LoveTestHelper
+import com.example.lovecounter.utils.manger.SpManager
+import com.example.lovecounter.utils.ads.AdPlacement
+import com.example.lovecounter.utils.ads.InterAdsUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -37,8 +39,13 @@ class NameTestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Banner is owned and managed by MainActivity at the bottom of the screen
+        binding.bannerContainer.visibility = View.GONE
+
         binding.etYourName.setText(spManager.getUserName())
         binding.etPartnerName.setText(spManager.getPartnerName())
+
+        InterAdsUtils.loadInterAd(requireActivity(), AdPlacement.TEST_INTERSTITIAL_ID)
 
         binding.btnBack.setOnClickListener {
             navigationManager.goBack()
@@ -54,12 +61,14 @@ class NameTestFragment : Fragment() {
             }
 
             binding.btnLoveTest.isEnabled = false
-            val result = LoveTestHelper.calculateNameCompatibility(yourName, partnerName)
-            LoveTestLoadingDialog.newInstance {
-                if (isAdded) {
-                    navigationManager.navigate(TestResultFragment().apply { arguments = result.toBundle() })
-                }
-            }.show(parentFragmentManager, "LoveTestLoading")
+            InterAdsUtils.showInterAd(requireActivity()) {
+                val result = LoveTestHelper.calculateNameCompatibility(yourName, partnerName)
+                LoveTestLoadingDialog.newInstance {
+                    if (isAdded) {
+                        navigationManager.navigate(TestResultFragment().apply { arguments = result.toBundle() })
+                    }
+                }.show(parentFragmentManager, "LoveTestLoading")
+            }
         }
     }
 

@@ -133,7 +133,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_20dp"
-        android:layout_marginBottom="@dimen/_32dp"
+        android:layout_marginBottom="@dimen/_24dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -164,5 +164,13 @@
             android:textSize="@dimen/text_size_14sp" />
 
     </LinearLayout>
+
+    <!-- Banner Ad Container (Managed globally by MainActivity) -->
+    <FrameLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

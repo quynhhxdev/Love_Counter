@@ -1,6 +1,6 @@
 package com.example.lovecounter
 
-import com.example.lovecounter.utils.DateUtils
+import com.example.lovecounter.utils.handle.DateUtils
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import java.util.Calendar

@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.LinearLayout
 import com.example.lovecounter.R
-import com.example.lovecounter.utils.dpToPx
+import com.example.lovecounter.utils.ext.dpToPx
 
 class OnboardingIndicatorView @JvmOverloads constructor(
     context: Context,

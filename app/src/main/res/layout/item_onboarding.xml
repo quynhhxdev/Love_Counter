@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <ImageView
         android:id="@+id/imgOnBoarding"
@@ -20,7 +20,6 @@
         android:layout_height="0dp"
         android:contentDescription="@string/access_onboarding"
         android:scaleType="fitCenter"
-        android:layout_marginTop="@dimen/_100dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_max="@dimen/_292dp"
@@ -55,5 +54,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         tools:text="@string/onboarding_subtitle_1" />
+
+    <FrameLayout
+        android:id="@+id/flNativeAdContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

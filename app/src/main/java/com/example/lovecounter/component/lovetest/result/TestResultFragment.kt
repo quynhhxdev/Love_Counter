@@ -12,9 +12,9 @@ import com.example.lovecounter.data.repositories.AvatarRepository
 import com.example.lovecounter.data.repositories.ImageStorageRepository
 import com.example.lovecounter.databinding.FragmentTestResultBinding
 import com.example.lovecounter.navigation.navigationManager
-import com.example.lovecounter.utils.LoveTestResult
-import com.example.lovecounter.utils.LoveTestType
-import com.example.lovecounter.utils.loadLocalPreview
+import com.example.lovecounter.utils.handle.LoveTestResult
+import com.example.lovecounter.utils.handle.LoveTestType
+import com.example.lovecounter.utils.ext.loadLocalPreview
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -41,6 +41,9 @@ class TestResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Banner is owned and managed by MainActivity at the bottom of the screen
+        binding.bannerContainer.visibility = View.GONE
 
         val testResult = LoveTestResult.fromBundle(arguments)
 

@@ -63,7 +63,14 @@
         android:layout_marginTop="@dimen/_8dp"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/_16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/flNativeAdContainer"
         app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <FrameLayout
+        android:id="@+id/flNativeAdContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

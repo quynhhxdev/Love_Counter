@@ -7,15 +7,24 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavContainer"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <include
         android:id="@+id/bottomNavContainer"
         layout="@layout/layout_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_64dp"
-        android:layout_marginBottom="8dp"
         android:elevation="@dimen/_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/bannerContainer" />
+
+    <FrameLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent" />
 

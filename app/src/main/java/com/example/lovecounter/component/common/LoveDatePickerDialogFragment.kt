@@ -17,7 +17,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import com.example.lovecounter.R
 import com.example.lovecounter.databinding.DialogLoveDatePickerBinding
-import com.example.lovecounter.utils.DateUtils
+import com.example.lovecounter.utils.handle.DateUtils
 import java.text.DateFormatSymbols
 import java.util.Calendar
 import java.util.Locale

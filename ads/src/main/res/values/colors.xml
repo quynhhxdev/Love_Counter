@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorindicator">#068abf</color>
+    <color name="whiteBlur">#bf9c9c9c</color>
+
+    <color name="colorPrimary">#00FF00</color>
+    <color name="colorPrimaryDark">#000</color>
+    <color name="colorAccent">#00FF00</color>
+
+    <color name="textColor">#ff666666</color>
+    <color name="colorAds">#068abf</color>
+    <color name="colorWhite">#ffffffff</color>
+    <color name="colorGrayAds">#fff8f8f8</color>
+    <color name="stockeCard">#5E58595A</color>
+
+    <color name="lightTransparent">#16000000</color>
+
+    <color name="gntTestBackgroundColor">#00F4F4F4</color>
+    <color name="gntTestBackgroundColor2">#00A3A3A3</color>
+    <color name="gntBlack">#000000</color>
+    <color name="gntWhite">#FFFFFF</color>
+    <color name="gntRed">#FF0000</color>
+    <color name="gntGreen">#00FF00</color>
+    <color name="gntBlue">#4285f4</color>
+    <color name="gntAdGreen">#3A6728</color>
+    <color name="gntGray">#808080</color>
+    <color name="gntOutline">#E0E0E0</color>
+    <color name="text_exit">#2152FF</color>
+    <color name="blue_bolt">#FF00B2FF</color>
+    <color name="davy_grey">#FF555555</color>
+    <color name="raisin_black">#FF222222</color>
+    <color name="gnt_test_background_color">#00F4F4F4</color>
+    <color name="gnt_test_background_color_2">#00A3A3A3</color>
+    <color name="gnt_black">#000000</color>
+    <color name="gnt_white">#FFFFFF</color>
+    <color name="gnt_red">#FF0000</color>
+    <color name="gnt_green">#00FF00</color>
+    <color name="gnt_blue">#4285f4</color>
+    <color name="gnt_ad_green">#3A6728</color>
+    <color name="gnt_gray">#808080</color>
+    <color name="gnt_outline">#E0E0E0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="text_color_primary">#000000</color>
+    <color name="text_color_second">#000000</color>
+    <color name="home_shimmer_color">#C3C3C3</color>
+    <color name="text_color_cta">#FF8040</color>
+    <color name="text_color_cta_2">#FF8040</color>
+    <color name="gnt_background">#FFFFFF</color>
+    <color name="stroke">#E1DFE0</color>
+    <color name="background_dialog_loading">#FAFAFA</color>
+    <color name="text_color_loading">#60B0EB</color>
+</resources>

@@ -1,7 +1,7 @@
 package com.example.lovecounter.navigation
 
 import androidx.fragment.app.Fragment
-import com.example.lovecounter.component.main.HomeFragment
+import com.example.lovecounter.component.home.HomeFragment
 import com.example.lovecounter.component.lovetest.LoveTestFragment
 import com.example.lovecounter.component.memory.MemoryFragment
 

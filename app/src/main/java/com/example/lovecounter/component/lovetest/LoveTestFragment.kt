@@ -29,6 +29,9 @@ class LoveTestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Root-tab banner is owned by MainActivity so it persists between tabs.
+        binding.bannerContainer.visibility = View.GONE
+
         binding.cardNameTest.setOnClickListener {
             navigationManager.navigate(NameTestFragment())
         }

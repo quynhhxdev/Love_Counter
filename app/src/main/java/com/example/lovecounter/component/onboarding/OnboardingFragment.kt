@@ -7,7 +7,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.lovecounter.base.fragment.BaseFragment
 import com.example.lovecounter.component.permission.PermissionFragment
 import com.example.lovecounter.databinding.FragmentOnboardingBinding
-import com.example.lovecounter.utils.SpManager
+import com.example.lovecounter.utils.FirebaseConfigManager
+import com.example.lovecounter.utils.manger.SpManager
+import com.example.lovecounter.utils.ads.AdPlacement
+import com.example.lovecounter.utils.ads.NativeAdsUtils
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -41,5 +44,22 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
             binding.indicatorView.setup(list.size)
         }
         viewModel.loadOnBoarding()
+
+        if (!FirebaseConfigManager.isNativeAdsEnabled()) {
+            return
+        }
+
+        val adUnitId = AdPlacement.TEST_NATIVE_ID
+        NativeAdsUtils.preloadNative(
+            requireContext().applicationContext,
+            AdPlacement.PERMISSION_NATIVE,
+            adUnitId
+        )
+        NativeAdsUtils.preloadNative(requireContext().applicationContext, AdPlacement.ONBOARDING_NATIVE, adUnitId) { success ->
+            if (success && isAdded) {
+                val nativeAd = NativeAdsUtils.getPreloadedNative(AdPlacement.ONBOARDING_NATIVE)
+                adapter.setNativeAd(nativeAd)
+            }
+        }
     }
 }

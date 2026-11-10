@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import androidx.room.Room
 import com.example.lovecounter.data.database.AppDatabase
 import com.example.lovecounter.utils.Constant
-import com.example.lovecounter.utils.SpManager
+import com.example.lovecounter.utils.manger.SpManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

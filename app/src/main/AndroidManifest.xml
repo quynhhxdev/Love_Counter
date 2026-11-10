@@ -32,7 +32,7 @@
         </provider>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".component.main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.LoveCounter">
             <intent-filter>

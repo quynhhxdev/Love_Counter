@@ -17,7 +17,9 @@ import com.example.lovecounter.data.model.ZodiacSign
 import com.example.lovecounter.data.sources.CoupleProfileDataStore
 import com.example.lovecounter.databinding.FragmentHoroscopeTestBinding
 import com.example.lovecounter.navigation.navigationManager
-import com.example.lovecounter.utils.LoveTestHelper
+import com.example.lovecounter.utils.handle.LoveTestHelper
+import com.example.lovecounter.utils.ads.AdPlacement
+import com.example.lovecounter.utils.ads.InterAdsUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -46,6 +48,11 @@ class HoroscopeTestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Banner is owned and managed by MainActivity at the bottom of the screen
+        binding.bannerContainer.visibility = View.GONE
+
+        InterAdsUtils.loadInterAd(requireActivity(), AdPlacement.TEST_INTERSTITIAL_ID)
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -76,17 +83,19 @@ class HoroscopeTestFragment : Fragment() {
 
         binding.btnLoveTest.setOnClickListener {
             binding.btnLoveTest.isEnabled = false
-            val result = LoveTestHelper.calculateHoroscopeCompatibility(
-                getString(userZodiac.displayNameRes),
-                getString(partnerZodiac.displayNameRes),
-                userZodiac.name,
-                partnerZodiac.name
-            )
-            LoveTestLoadingDialog.newInstance {
-                if (isAdded) {
-                    navigationManager.navigate(TestResultFragment().apply { arguments = result.toBundle() })
-                }
-            }.show(parentFragmentManager, "LoveTestLoading")
+            InterAdsUtils.showInterAd(requireActivity()) {
+                val result = LoveTestHelper.calculateHoroscopeCompatibility(
+                    getString(userZodiac.displayNameRes),
+                    getString(partnerZodiac.displayNameRes),
+                    userZodiac.name,
+                    partnerZodiac.name
+                )
+                LoveTestLoadingDialog.newInstance {
+                    if (isAdded) {
+                        navigationManager.navigate(TestResultFragment().apply { arguments = result.toBundle() })
+                    }
+                }.show(parentFragmentManager, "LoveTestLoading")
+            }
         }
     }
 

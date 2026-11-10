@@ -10,7 +10,7 @@ import com.example.lovecounter.component.onboarding.OnboardingFragment
 import com.example.lovecounter.component.permission.PermissionFragment
 import com.example.lovecounter.navigation.RootTab
 import com.example.lovecounter.navigation.navigationManager
-import com.example.lovecounter.utils.SpManager
+import com.example.lovecounter.utils.manger.SpManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

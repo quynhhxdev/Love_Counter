@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Love Counter"
 include(":app")
- 
+include(":ads")

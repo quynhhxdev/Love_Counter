@@ -1,0 +1,46 @@
+[
+  {
+    "productId": "remove_ads_product_id",
+    "type": "inapp",
+    "title": "Gói Xóa Quảng Cáo (No Ads)",
+    "description": "Loại bỏ hoàn toàn tất cả quảng cáo trong ứng dụng.",
+    "skuDetailsToken": "AEuhp4Izz50wTvd7YM9wWjPLp8hZY7jRPhBEcM9GAbTYSdUM_v2QX85e8UYklstgqaRC",
+    "oneTimePurchaseOfferDetails": {
+      "priceAmountMicros": 49000000000,
+      "priceCurrencyCode": "VND",
+      "formattedPrice": "49.000₫"
+    }
+  },
+  {
+    "productId": "android.test.purchased",
+    "type": "inapp",
+    "title": "Tiêu đề sản phẩm kiểm thử",
+    "description": "Mô tả mẫu sản phẩm kiểm thử Google Play: android.test.purchased.",
+    "skuDetailsToken": "AEuhp4Izz50wTvd7YM9wWjPLp8hZY7jRPhBEcM9GAbTYSdUM_v2QX85e8UYklstgqaRC",
+    "oneTimePurchaseOfferDetails": {
+      "priceAmountMicros": 23000000000,
+      "priceCurrencyCode": "VND",
+      "formattedPrice": "23.000₫"
+    }
+  },
+  {
+    "productId": "premium_monthly_sub",
+    "type": "subs",
+    "title": "Gói Thuê Bao Premium Hàng Tháng",
+    "description": "Đăng ký gói Premium hàng tháng để mở khóa tất cả các tính năng nâng cao.",
+    "skuDetailsToken": "AEuhp4Izz50wTvd7YM9wWjPLp8hZY7jRPhBEcM9GAbTYSdUM_v2QX85e8UYklstgqaRC",
+    "subscriptionOfferDetails": [
+      {
+        "offerToken": "mock_offer_token_monthly",
+        "pricingPhases": [
+          {
+            "priceAmountMicros": 79000000000,
+            "priceCurrencyCode": "VND",
+            "formattedPrice": "79.000₫/tháng",
+            "billingPeriod": "P1M"
+          }
+        ]
+      }
+    ]
+  }
+]
