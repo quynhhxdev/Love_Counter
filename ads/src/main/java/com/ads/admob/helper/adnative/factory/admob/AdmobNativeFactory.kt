@@ -15,7 +15,8 @@ interface AdmobNativeFactory {
         onLoaded: (NativeAd) -> Unit,
         onFailed: (String) -> Unit,
         onClicked: () -> Unit = {},
-        onImpression: () -> Unit = {}
+        onImpression: () -> Unit = {},
+        onFailedWithErrorCode: ((String, Int) -> Unit)? = null
     )
 
     fun populateNativeAdView(

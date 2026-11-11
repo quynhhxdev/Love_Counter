@@ -2,6 +2,7 @@ package com.ads.admob.billing.factory
 
 import android.app.Activity
 import android.content.Context
+import com.ads.admob.data.IapItem
 import com.ads.admob.listener.BillingClientConnectionListener
 import com.ads.admob.listener.PurchaseListener
 import com.ads.admob.listener.UpdatePurchaseListener
@@ -25,6 +26,7 @@ interface IapFactory {
     // Thực hiện mua hàng
     fun buyIap(activity: Activity, productId: String, productType: String = "inapp")
     fun launchBillingFlow(activity: Activity, productId: String)
+    fun queryProduct(productId: String, onComplete: (IapItem?) -> Unit)
 
     // Kiểm tra và khôi phục trạng thái mua hàng
     fun isProductPurchased(productId: String): Boolean

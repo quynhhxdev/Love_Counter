@@ -12,6 +12,9 @@ import com.ads.admob.cmp.ConsentManager
 import com.example.lovecounter.data.sources.CoupleProfileDataStore
 import com.example.lovecounter.utils.LocaleHelper
 import com.example.lovecounter.utils.Logger
+import com.example.lovecounter.utils.ads.AdPlacement
+import com.example.lovecounter.utils.ads.AdsInitializer
+import com.example.lovecounter.utils.ads.AdsPolicyManager
 import com.example.lovecounter.utils.ads.AppOpenAdsUtils
 import com.google.firebase.FirebaseApp
 import dagger.hilt.android.HiltAndroidApp
@@ -32,13 +35,11 @@ class App : Application(), Application.ActivityLifecycleCallbacks {
             null
         }
 
-        AdmobFactoryImpl.INSTANCE.initAdmob(this, AfAdConfig.Builder().build()) {
-            appResumeAdHelper = AppOpenAdsUtils(this@App, "ca-app-pub-3940256099942544/9257395921")
+        AdsInitializer.initialize(this) {
+            appResumeAdHelper = AppOpenAdsUtils(this@App, AdPlacement.APPOPEN_RESUME_ID)
             appResumeAdHelper?.setCurrentActivity(currentActivity)
-            if (AdsFirebaseConfigManager.isAppOpenAdsEnabled()) {
-                if (ConsentManager.canRequestAds(this@App)) {
-                    appResumeAdHelper?.fetchAd()
-                }
+            if (AdsPolicyManager.canLoadAd(this@App, AdsPolicyManager.AdType.APP_OPEN)) {
+                appResumeAdHelper?.fetchAd()
             }
         }
 

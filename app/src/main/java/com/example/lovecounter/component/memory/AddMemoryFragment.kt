@@ -16,6 +16,7 @@ import com.example.lovecounter.data.repositories.MemoryRepository
 import com.example.lovecounter.databinding.FragmentAddMemoryBinding
 import com.example.lovecounter.navigation.navigationManager
 import com.example.lovecounter.utils.handle.DateUtils
+import com.example.lovecounter.utils.ads.AdPlacement
 import com.example.lovecounter.utils.ads.RewardAdsUtils
 import com.example.lovecounter.utils.ext.loadLocalPreview
 import dagger.hilt.android.AndroidEntryPoint
@@ -73,7 +74,7 @@ class AddMemoryFragment : Fragment() {
         // Banner is owned and managed by MainActivity at the bottom of the screen
         binding.bannerContainer.visibility = View.GONE
 
-        val rewardAdId = "ca-app-pub-3940256099942544/5224354917" // Google test rewarded ad ID
+        val rewardAdId = AdPlacement.REWARD_UNLOCK_ID
         RewardAdsUtils.loadRewardAd(requireActivity(), rewardAdId)
 
         parentFragmentManager.setFragmentResultListener(DATE_PICKER_RESULT, viewLifecycleOwner) { _, result ->

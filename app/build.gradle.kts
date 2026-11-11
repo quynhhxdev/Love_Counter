@@ -30,6 +30,14 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        debug {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
     }
 
     compileOptions {
@@ -43,6 +51,25 @@ android {
         compose = false
     }
 
+    lint {
+        disable.addAll(
+            hashSetOf(
+                "ContentDescription",
+                "HardcodedText",
+                "SpUsage",
+                "KotlinNullnessAnnotation",
+                "NotifyDataSetChanged",
+                "SetTextI18n",
+                "DefaultLocale",
+                "GradleDynamicVersion",
+                "CustomSplashScreen",
+                "ClickableViewAccessibility",
+                "LockedOrientationActivity",
+                "StaticFieldLeak"
+            )
+        )
+    }
+
     bundle {
         language {
             enableSplit = false
@@ -52,11 +79,37 @@ android {
     flavorDimensions += "default"
     productFlavors {
         create("appDebug") {
-            dimension = "default"
+            manifestPlaceholders["ad_app_id"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "inter_splash", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "native_splash", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "inter_main", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "appopen_resume", "\"ca-app-pub-3940256099942544/9257395921\"")
+            buildConfigField("String", "app_open", "\"ca-app-pub-3940256099942544/9257395921\"")
+            buildConfigField("String", "native_main", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_language", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_onboarding", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_onboarding_fullscreen", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_onboarding_fullscreen_2f", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "reward_unlock", "\"ca-app-pub-3940256099942544/5224354917\"")
+            buildConfigField("String", "banner_main", "\"ca-app-pub-3940256099942544/2014213617\"")
+            buildConfigField("String", "native_test", "\"ca-app-pub-3940256099942544/2247696110\"")
             buildConfigField("Boolean", "build_debug", "true")
         }
         create("appProduct") {
-            dimension = "default"
+            manifestPlaceholders["ad_app_id"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "inter_splash", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "native_splash", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "inter_main", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "appopen_resume", "\"ca-app-pub-3940256099942544/9257395921\"")
+            buildConfigField("String", "app_open", "\"ca-app-pub-3940256099942544/9257395921\"")
+            buildConfigField("String", "native_main", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_language", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_onboarding", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_onboarding_fullscreen", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_onboarding_fullscreen_2f", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "reward_unlock", "\"ca-app-pub-3940256099942544/5224354917\"")
+            buildConfigField("String", "banner_main", "\"ca-app-pub-3940256099942544/2014213617\"")
+            buildConfigField("String", "native_test", "\"ca-app-pub-3940256099942544/2247696110\"")
             buildConfigField("Boolean", "build_debug", "false")
         }
     }

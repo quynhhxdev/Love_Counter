@@ -171,4 +171,14 @@
     <string name="failed_to_save_language">भाषा चयन सहेजा नहीं जा सका</string>
     <string name="love_splash">LOVE</string>
     <string name="counter_splash">COUNTER</string>
+    <string name="remove_ads_option">विज्ञापन हटाएँ</string>
+    <string name="ads_removed">विज्ञापन हटा दिए गए</string>
+    <string name="iap_title">Love Counter का विज्ञापन-मुक्त अनुभव लें</string>
+    <string name="iap_description">एक बार खरीदकर ऐप से विज्ञापन हटाएँ।</string>
+    <string name="iap_price_loading">कीमत लोड हो रही है...</string>
+    <string name="iap_continue_purchase">जारी रखें</string>
+    <string name="iap_restore_purchase">खरीदारी पुनर्स्थापित करें</string>
+    <string name="iap_product_unavailable">खरीदारी का विकल्प उपलब्ध नहीं है। कृपया फिर से कोशिश करें।</string>
+    <string name="iap_purchase_success">विज्ञापन हटा दिए गए हैं।</string>
+    <string name="iap_purchase_failed">खरीदारी पूरी नहीं हो सकी। कृपया फिर से कोशिश करें।</string>
 </resources>

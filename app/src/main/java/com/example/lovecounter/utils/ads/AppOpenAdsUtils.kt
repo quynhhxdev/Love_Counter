@@ -5,10 +5,18 @@ import com.ads.admob.helper.appopen.AppOpenAdConfig
 import com.ads.admob.helper.appopen.AppResumeAdHelper
 import com.ads.admob.helper.appopen.params.AppOpenAdParam
 
-class AppOpenAdsUtils(application: Application, adId: String) {
+class AppOpenAdsUtils(
+    application: Application,
+    adId: String = AdPlacement.APPOPEN_RESUME_ID,
+    placementKey: String = AdPlacement.DEFAULT_APP_OPEN
+) {
     private val helper = AppResumeAdHelper(
         application,
-        AppOpenAdConfig(idAds = adId, param = AppOpenAdParam(adId))
+        AppOpenAdConfig(
+            idAds = adId,
+            adPlacement = placementKey,
+            param = AppOpenAdParam(adId, adPlacement = placementKey)
+        )
     )
 
     fun fetchAd() {

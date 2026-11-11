@@ -49,11 +49,11 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>() {
             return
         }
 
-        val adUnitId = AdPlacement.TEST_NATIVE_ID
+        val adUnitId = AdPlacement.NATIVE_ONBOARDING_ID
         NativeAdsUtils.preloadNative(
             requireContext().applicationContext,
             AdPlacement.PERMISSION_NATIVE,
-            adUnitId
+            AdPlacement.NATIVE_MAIN_ID
         )
         NativeAdsUtils.preloadNative(requireContext().applicationContext, AdPlacement.ONBOARDING_NATIVE, adUnitId) { success ->
             if (success && isAdded) {

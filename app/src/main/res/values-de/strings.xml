@@ -171,4 +171,14 @@
     <string name="failed_to_save_language">Die Sprachauswahl konnte nicht gespeichert werden</string>
     <string name="love_splash">LOVE</string>
     <string name="counter_splash">COUNTER</string>
+    <string name="remove_ads_option">Werbung entfernen</string>
+    <string name="ads_removed">Werbung entfernt</string>
+    <string name="iap_title">Love Counter ohne Werbung</string>
+    <string name="iap_description">Entferne Werbung mit einem einmaligen Kauf aus der App.</string>
+    <string name="iap_price_loading">Preis wird geladen...</string>
+    <string name="iap_continue_purchase">Weiter</string>
+    <string name="iap_restore_purchase">Kauf wiederherstellen</string>
+    <string name="iap_product_unavailable">Kaufoption nicht verfügbar. Bitte versuche es erneut.</string>
+    <string name="iap_purchase_success">Die Werbung wurde entfernt.</string>
+    <string name="iap_purchase_failed">Kauf konnte nicht abgeschlossen werden. Bitte versuche es erneut.</string>
 </resources>

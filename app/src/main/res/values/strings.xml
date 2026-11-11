@@ -183,4 +183,14 @@
     <string name="zodiac_pisces">Pisces</string>
     <string name="love_splash">LOVE</string>
     <string name="counter_splash">COUNTER</string>
+    <string name="remove_ads_option">Remove ads</string>
+    <string name="ads_removed">Ads removed</string>
+    <string name="iap_title">Enjoy Love Counter without ads</string>
+    <string name="iap_description">Make a one-time purchase to remove ads from the app.</string>
+    <string name="iap_price_loading">Loading price...</string>
+    <string name="iap_continue_purchase">Continue</string>
+    <string name="iap_restore_purchase">Restore purchase</string>
+    <string name="iap_product_unavailable">The purchase option is unavailable. Please try again.</string>
+    <string name="iap_purchase_success">Ads have been removed.</string>
+    <string name="iap_purchase_failed">Purchase could not be completed. Please try again.</string>
 </resources>

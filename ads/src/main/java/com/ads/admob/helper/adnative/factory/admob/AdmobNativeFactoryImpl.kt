@@ -33,7 +33,8 @@ class AdmobNativeFactoryImpl : AdmobNativeFactory {
         onLoaded: (NativeAd) -> Unit,
         onFailed: (String) -> Unit,
         onClicked: () -> Unit,
-        onImpression: () -> Unit
+        onImpression: () -> Unit,
+        onFailedWithErrorCode: ((String, Int) -> Unit)?
     ) {
         when (param) {
             is NativeAdParam.Ready -> {
@@ -64,7 +65,8 @@ class AdmobNativeFactoryImpl : AdmobNativeFactory {
                         onLoaded = onLoaded,
                         onFailed = onFailed,
                         onClicked = onClicked,
-                        onImpression = onImpression
+                        onImpression = onImpression,
+                        onFailedWithErrorCode = onFailedWithErrorCode
                     )
                 }
             }
@@ -163,7 +165,8 @@ class AdmobNativeFactoryImpl : AdmobNativeFactory {
         onLoaded: (NativeAd) -> Unit,
         onFailed: (String) -> Unit,
         onClicked: () -> Unit,
-        onImpression: () -> Unit
+        onImpression: () -> Unit,
+        onFailedWithErrorCode: ((String, Int) -> Unit)?
     ) {
         val adUnitId = adUnitIds.getOrNull(index)
         if (adUnitId == null) {
@@ -206,10 +209,12 @@ class AdmobNativeFactoryImpl : AdmobNativeFactory {
                             onLoaded,
                             onFailed,
                             onClicked,
-                            onImpression
+                            onImpression,
+                            onFailedWithErrorCode
                         )
                     } else {
-                        onFailed(error.message)
+                        onFailedWithErrorCode?.invoke(error.message, error.code)
+                            ?: onFailed(error.message)
                     }
                 }
             })

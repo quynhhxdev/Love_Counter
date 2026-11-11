@@ -61,7 +61,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         // Root-tab banner is owned by MainActivity so it persists between tabs.
         binding.bannerContainer.visibility = View.GONE
 
-        val adUnitId = AdPlacement.TEST_INTERSTITIAL_ID
+        val adUnitId = AdPlacement.INTER_MAIN_ID
         InterAdsUtils.loadInterAd(requireActivity(), adUnitId)
 
         binding.llLoveCounter.setOnClickListener {

@@ -171,4 +171,14 @@
     <string name="failed_to_save_language">Pilihan bahasa tidak dapat disimpan</string>
     <string name="love_splash">LOVE</string>
     <string name="counter_splash">COUNTER</string>
+    <string name="remove_ads_option">Hapus iklan</string>
+    <string name="ads_removed">Iklan telah dihapus</string>
+    <string name="iap_title">Nikmati Love Counter tanpa iklan</string>
+    <string name="iap_description">Lakukan pembelian satu kali untuk menghapus iklan dari aplikasi.</string>
+    <string name="iap_price_loading">Memuat harga...</string>
+    <string name="iap_continue_purchase">Lanjutkan</string>
+    <string name="iap_restore_purchase">Pulihkan pembelian</string>
+    <string name="iap_product_unavailable">Opsi pembelian tidak tersedia. Silakan coba lagi.</string>
+    <string name="iap_purchase_success">Iklan telah dihapus.</string>
+    <string name="iap_purchase_failed">Pembelian tidak dapat diselesaikan. Silakan coba lagi.</string>
 </resources>

@@ -16,10 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoveCounter">
 
-        <!-- AdMob Sample App ID -->
+        <!-- AdMob App ID -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="${ad_app_id}" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

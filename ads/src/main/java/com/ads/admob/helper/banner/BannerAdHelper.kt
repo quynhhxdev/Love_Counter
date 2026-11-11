@@ -62,8 +62,11 @@ class BannerAdHelper(private val config: BannerAdConfig) :
         loadInternal(context, container)
     }
 
-    fun reloadBanner() {
+    fun reloadBanner(force: Boolean = false) {
         if (!canReloadAd) return
+        if (!force && (mutableState.value == AdBannerState.LOADED || mutableState.value == AdBannerState.LOADING)) {
+            return
+        }
         val context = contextRef?.get() ?: return
         val container = containerRef?.get() ?: return
         if (!isCancelled) loadInternal(context, container)
@@ -91,11 +94,8 @@ class BannerAdHelper(private val config: BannerAdConfig) :
     }
 
     override fun onResume(owner: LifecycleOwner) {
-        if (canReloadAd && hasCompletedInitialRequest && !isCancelled &&
-            mutableState.value != AdBannerState.LOADING
-        ) {
-            reloadBanner()
-        }
+        // Do not reload banner on Activity/Fragment onResume.
+        // Google Mobile Ads SDK handles banner auto-refresh natively.
     }
 
     override fun onDestroy(owner: LifecycleOwner) {

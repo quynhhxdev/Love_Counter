@@ -45,7 +45,7 @@ class NameTestFragment : Fragment() {
         binding.etYourName.setText(spManager.getUserName())
         binding.etPartnerName.setText(spManager.getPartnerName())
 
-        InterAdsUtils.loadInterAd(requireActivity(), AdPlacement.TEST_INTERSTITIAL_ID)
+        InterAdsUtils.loadInterAd(requireActivity(), AdPlacement.INTER_MAIN_ID)
 
         binding.btnBack.setOnClickListener {
             navigationManager.goBack()

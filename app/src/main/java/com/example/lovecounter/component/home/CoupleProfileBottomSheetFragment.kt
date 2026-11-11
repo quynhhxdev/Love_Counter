@@ -82,7 +82,7 @@ class CoupleProfileBottomSheetFragment : BottomSheetDialogFragment() {
         setupListeners()
         observeViewModel()
 
-        val adUnitId = AdPlacement.TEST_INTERSTITIAL_ID
+        val adUnitId = AdPlacement.INTER_MAIN_ID
         InterAdsUtils.loadInterAd(requireActivity(), adUnitId)
     }
 

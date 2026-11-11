@@ -14,54 +14,61 @@ object NativeAdsUtils {
 
     fun preloadNative(
         context: Context,
-        placementKey: String,
-        adId: String,
+        placementKey: String = AdPlacement.DEFAULT_NATIVE,
+        adId: String = AdPlacement.NATIVE_MAIN_ID,
         fallbackAdId: String? = null,
         onComplete: ((Boolean) -> Unit)? = null
     ) {
-        var alreadyCached = false
-        var shouldLoad = false
-        synchronized(cachedNativeAds) {
-            if (cachedNativeAds.containsKey(placementKey)) {
-                alreadyCached = true
-            } else {
-                val callbacks = pendingCallbacks[placementKey]
-                if (callbacks == null) {
-                    pendingCallbacks[placementKey] = mutableListOf()
-                    shouldLoad = true
-                }
-                onComplete?.let { pendingCallbacks[placementKey]?.add(it) }
-            }
-        }
-        if (alreadyCached) {
-            onComplete?.invoke(true)
+        if (!AdsPolicyManager.canLoadAd(context, AdsPolicyManager.AdType.NATIVE)) {
+            onComplete?.invoke(false)
             return
         }
-        if (!shouldLoad) return
 
-        val helper = NativeAdHelper(NativeAdConfig(placementKey, NativeAdParam(adId, fallbackAdId)))
-        helper.loadNative(context, object : NativeAdCallback {
-            override fun onAdLoaded(nativeAd: NativeAd) {
-                val callbacks = synchronized(cachedNativeAds) {
-                    cachedNativeAds[placementKey] = nativeAd
-                    pendingCallbacks.remove(placementKey).orEmpty()
+        AdsInitializer.runWhenReady {
+            var alreadyCached = false
+            var shouldLoad = false
+            synchronized(cachedNativeAds) {
+                if (cachedNativeAds.containsKey(placementKey)) {
+                    alreadyCached = true
+                } else {
+                    val callbacks = pendingCallbacks[placementKey]
+                    if (callbacks == null) {
+                        pendingCallbacks[placementKey] = mutableListOf()
+                        shouldLoad = true
+                    }
+                    onComplete?.let { pendingCallbacks[placementKey]?.add(it) }
                 }
-                callbacks.forEach { it(true) }
             }
-            override fun onAdFailedToLoad(error: String) {
-                val callbacks = synchronized(cachedNativeAds) {
-                    pendingCallbacks.remove(placementKey).orEmpty()
+            if (alreadyCached) {
+                onComplete?.invoke(true)
+                return@runWhenReady
+            }
+            if (!shouldLoad) return@runWhenReady
+
+            val helper = NativeAdHelper(NativeAdConfig(placementKey, NativeAdParam(adId, fallbackAdId)))
+            helper.loadNative(context, object : NativeAdCallback {
+                override fun onAdLoaded(nativeAd: NativeAd) {
+                    val callbacks = synchronized(cachedNativeAds) {
+                        cachedNativeAds[placementKey] = nativeAd
+                        pendingCallbacks.remove(placementKey).orEmpty()
+                    }
+                    callbacks.forEach { it(true) }
                 }
-                callbacks.forEach { it(false) }
-            }
-        })
+                override fun onAdFailedToLoad(error: String) {
+                    val callbacks = synchronized(cachedNativeAds) {
+                        pendingCallbacks.remove(placementKey).orEmpty()
+                    }
+                    callbacks.forEach { it(false) }
+                }
+            })
+        }
     }
 
-    fun getPreloadedNative(placementKey: String): NativeAd? {
+    fun getPreloadedNative(placementKey: String = AdPlacement.DEFAULT_NATIVE): NativeAd? {
         return synchronized(cachedNativeAds) { cachedNativeAds[placementKey] }
     }
 
-    fun destroyNative(placementKey: String) {
+    fun destroyNative(placementKey: String = AdPlacement.DEFAULT_NATIVE) {
         synchronized(cachedNativeAds) {
             cachedNativeAds.remove(placementKey)?.destroy()
         }

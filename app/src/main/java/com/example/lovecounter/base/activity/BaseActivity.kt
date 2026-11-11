@@ -143,12 +143,16 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         }
     }
 
-    fun showInterAd(adId: String = AdPlacement.TEST_INTERSTITIAL_ID, onAdClosed: () -> Unit) {
-        InterAdsUtils.showInterAd(this, onAdClosed)
+    fun showInterAd(adId: String = AdPlacement.INTER_MAIN_ID, onAdClosed: () -> Unit) {
+        InterAdsUtils.showInterAd(this, adId = adId, onAdClosed = onAdClosed)
+    }
+
+    fun showInterAd(onAdClosed: () -> Unit) {
+        InterAdsUtils.showInterAd(this, onAdClosed = onAdClosed)
     }
 
     fun showRewardAd(onRewardGranted: () -> Unit) {
-        RewardAdsUtils.showRewardAd(this, onRewardGranted)
+        RewardAdsUtils.showRewardAd(this, onRewardGranted = onRewardGranted)
     }
 
     override fun onDestroy() {

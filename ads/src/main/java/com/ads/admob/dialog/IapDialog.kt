@@ -16,7 +16,8 @@ import com.ads.admob.data.IapItem
 class IapDialog(
     context: Context,
     private val iapItem: IapItem? = null,
-    private val onBuyClicked: () -> Unit
+    private val onBuyClicked: () -> Unit,
+    private val onRestoreClicked: (() -> Unit)? = null
 ) : Dialog(context, android.R.style.Theme_Translucent_NoTitleBar) {
 
     constructor(context: Context, onBuyClicked: () -> Unit) : this(context, null, onBuyClicked)
@@ -59,6 +60,9 @@ class IapDialog(
         val tvPrice = findViewById<TextView>(context.resources.getIdentifier("tvPrice", "id", context.packageName))
         val txtContinuePurchase = findViewById<View>(context.resources.getIdentifier("txtContinuePurchase", "id", context.packageName))
             ?: findViewById<Button>(context.resources.getIdentifier("btnBuy", "id", context.packageName))
+        val txtRestorePurchase = findViewById<View>(
+            context.resources.getIdentifier("txtRestorePurchase", "id", context.packageName)
+        )
 
         iapItem?.let { item ->
             tvTitle?.text = item.title
@@ -69,6 +73,11 @@ class IapDialog(
         txtContinuePurchase?.setOnClickListener {
             dismiss()
             onBuyClicked()
+        }
+        txtRestorePurchase?.visibility = if (onRestoreClicked == null) View.GONE else View.VISIBLE
+        txtRestorePurchase?.setOnClickListener {
+            dismiss()
+            onRestoreClicked?.invoke()
         }
     }
 }

@@ -171,4 +171,14 @@
     <string name="zodiac_pisces">Piscis</string>
     <string name="love_splash">LOVE</string>
     <string name="counter_splash">COUNTER</string>
+    <string name="remove_ads_option">Eliminar anuncios</string>
+    <string name="ads_removed">Anuncios eliminados</string>
+    <string name="iap_title">Disfruta Love Counter sin anuncios</string>
+    <string name="iap_description">Elimina los anuncios de la aplicación con un único pago.</string>
+    <string name="iap_price_loading">Cargando precio...</string>
+    <string name="iap_continue_purchase">Continuar</string>
+    <string name="iap_restore_purchase">Restaurar compra</string>
+    <string name="iap_product_unavailable">La opción de compra no está disponible. Inténtalo de nuevo.</string>
+    <string name="iap_purchase_success">Se han eliminado los anuncios.</string>
+    <string name="iap_purchase_failed">No se pudo completar la compra. Inténtalo de nuevo.</string>
 </resources>

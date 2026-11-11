@@ -35,7 +35,7 @@ class StartDateFragment : BaseFragment<FragmentStartDateBinding>() {
         if (saved > 0) selectedDate.timeInMillis = saved else selectedDate.set(2023, Calendar.SEPTEMBER, 11)
         updateDate()
 
-        val adUnitId = AdPlacement.TEST_INTERSTITIAL_ID
+        val adUnitId = AdPlacement.INTER_MAIN_ID
         InterAdsUtils.loadInterAd(requireActivity(), adUnitId)
 
         parentFragmentManager.setFragmentResultListener(DATE_RESULT, viewLifecycleOwner) { _, result ->

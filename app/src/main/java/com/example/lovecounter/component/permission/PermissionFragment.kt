@@ -55,7 +55,7 @@ class PermissionFragment : BaseFragment<FragmentPermissionBinding>() {
         binding.flNativeAdContainer.removeAllViews()
         layoutInflater.inflate(com.ads.admob.R.layout.loading_native_ad_view_type1, binding.flNativeAdContainer, true)
 
-        val adUnitId = AdPlacement.TEST_NATIVE_ID
+        val adUnitId = AdPlacement.NATIVE_MAIN_ID
         NativeAdsUtils.preloadNative(requireContext().applicationContext, AdPlacement.PERMISSION_NATIVE, adUnitId) { success ->
             if (success && isAdded) {
                 val nativeAd = NativeAdsUtils.getPreloadedNative(AdPlacement.PERMISSION_NATIVE)

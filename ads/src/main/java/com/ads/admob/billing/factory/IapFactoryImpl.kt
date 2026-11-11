@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.util.Log
 import com.ads.admob.admob.AdmobFactoryImpl
+import com.ads.admob.data.IapItem
 import com.ads.admob.listener.BillingClientConnectionListener
 import com.ads.admob.listener.PurchaseListener
 import com.ads.admob.listener.UpdatePurchaseListener
@@ -226,6 +227,26 @@ class IapFactoryImpl private constructor() : IapFactory {
 
     override fun launchBillingFlow(activity: Activity, productId: String) {
         buyIap(activity, productId)
+    }
+
+    override fun queryProduct(productId: String, onComplete: (IapItem?) -> Unit) {
+        if (!::billingClient.isInitialized || !billingClient.isReady) {
+            onComplete(null)
+            return
+        }
+
+        queryProductDetails(listOf(productId), BillingClient.ProductType.INAPP) {
+            val item = cachedProductDetails[productId]?.let { details ->
+                IapItem(
+                    productId = details.productId,
+                    title = details.title,
+                    description = details.description,
+                    price = details.oneTimePurchaseOfferDetails?.formattedPrice.orEmpty(),
+                    productType = details.productType
+                )
+            }
+            onComplete(item)
+        }
     }
 
     private fun queryProductDetails(

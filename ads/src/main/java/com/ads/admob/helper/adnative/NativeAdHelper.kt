@@ -185,15 +185,23 @@ class NativeAdHelper(private val config: NativeAdConfig) : AdsHelper<NativeAdPar
             onFailed = { error ->
                 if (isDestroyed || generation != requestGeneration) return@requestNativeAd
                 fail(error)
+            },
+            onFailedWithErrorCode = { error, errorCode ->
+                if (isDestroyed || generation != requestGeneration) return@requestNativeAd
+                fail(error, errorCode)
             }
         )
     }
 
-    private fun fail(error: String) {
+    private fun fail(error: String, errorCode: Int? = null) {
         _state.value = AdNativeState.Fail(error)
         showShimmer(false)
         if (currentNativeAd == null) containerReference?.get()?.visibility = View.GONE
-        callback?.onAdFailedToLoad(error)
+        if (errorCode == null) {
+            callback?.onAdFailedToLoad(error)
+        } else {
+            callback?.onAdFailedToLoad(error, errorCode)
+        }
         scheduleRefresh()
     }
 

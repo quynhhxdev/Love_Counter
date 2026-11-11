@@ -38,7 +38,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
             callback = object : OnConsentResponse {
                 override fun onConsentGathered(canRequestAds: Boolean) {
                     if (!isAdded) return
-                    val adUnitId = AdPlacement.TEST_INTERSTITIAL_ID
+                    val adUnitId = AdPlacement.INTER_SPLASH_ID
 
                     viewLifecycleOwner.lifecycleScope.launch {
                         if (canRequestAds) {
@@ -47,7 +47,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
                                 NativeAdsUtils.preloadNative(
                                     requireContext().applicationContext,
                                     AdPlacement.LANGUAGE_NATIVE,
-                                    AdPlacement.TEST_NATIVE_ID
+                                    AdPlacement.NATIVE_LANGUAGE_ID
                                 )
                             }
                         }

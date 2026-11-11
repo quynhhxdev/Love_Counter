@@ -13,6 +13,7 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ads.admob.helper.banner.BannerAdHelper
+import com.ads.admob.helper.banner.params.AdBannerState
 import com.ads.admob.listener.BannerAdCallBack
 import com.example.lovecounter.R
 import com.example.lovecounter.component.home.HomeFragment
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity(), NavigationHost {
         setupBottomNavigation()
         setupBackNavigation()
 
-        InterAdsUtils.loadInterAd(this, AdPlacement.TEST_INTERSTITIAL_ID)
+        InterAdsUtils.loadInterAd(this, AdPlacement.INTER_MAIN_ID)
 
         if (savedInstanceState == null) {
             navigationManager.replaceRoot(SplashFragment())
@@ -123,7 +124,8 @@ class MainActivity : AppCompatActivity(), NavigationHost {
         val shouldShowBanner = shouldDisplayBanner(destination)
         if (shouldShowBanner) {
             ensureMainBannerLoaded()
-            setMainBannerVisible(isBannerLoaded)
+            val isBannerLoading = mainBannerHelper?.state?.value == AdBannerState.LOADING
+            setMainBannerVisible(isBannerLoaded || isBannerLoading)
         } else {
             setMainBannerVisible(false)
         }
@@ -152,7 +154,7 @@ class MainActivity : AppCompatActivity(), NavigationHost {
             mainBannerHelper = BannerAdsUtils.loadBanner(
                 context = this,
                 container = binding.bannerContainer,
-                adId = AdPlacement.TEST_BANNER_ID,
+                adId = AdPlacement.BANNER_MAIN_ID,
                 callback = object : BannerAdCallBack {
                     override fun onAdLoaded() {
                         isBannerLoaded = true
@@ -169,7 +171,7 @@ class MainActivity : AppCompatActivity(), NavigationHost {
                     override fun onAdImpression() = Unit
                 }
             )
-        } else if (!isBannerLoaded) {
+        } else if (!isBannerLoaded && mainBannerHelper?.state?.value == AdBannerState.FAIL) {
             mainBannerHelper?.reloadBanner()
         }
     }

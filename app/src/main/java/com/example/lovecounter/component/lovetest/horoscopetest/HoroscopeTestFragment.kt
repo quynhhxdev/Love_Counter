@@ -52,7 +52,7 @@ class HoroscopeTestFragment : Fragment() {
         // Banner is owned and managed by MainActivity at the bottom of the screen
         binding.bannerContainer.visibility = View.GONE
 
-        InterAdsUtils.loadInterAd(requireActivity(), AdPlacement.TEST_INTERSTITIAL_ID)
+        InterAdsUtils.loadInterAd(requireActivity(), AdPlacement.INTER_MAIN_ID)
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

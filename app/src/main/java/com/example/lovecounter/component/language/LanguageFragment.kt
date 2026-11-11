@@ -113,12 +113,12 @@ class LanguageFragment : BaseFragment<FragmentLanguageBinding>() {
         binding.flNativeAdContainer.removeAllViews()
         layoutInflater.inflate(com.ads.admob.R.layout.loading_native_ad_view_type1, binding.flNativeAdContainer, true)
 
-        val adUnitId = AdPlacement.TEST_NATIVE_ID
+        val adUnitId = AdPlacement.NATIVE_LANGUAGE_ID
         if (isInitialSetup) {
             NativeAdsUtils.preloadNative(
                 requireContext().applicationContext,
                 AdPlacement.ONBOARDING_NATIVE,
-                adUnitId
+                AdPlacement.NATIVE_ONBOARDING_ID
             )
         }
         NativeAdsUtils.preloadNative(requireContext().applicationContext, AdPlacement.LANGUAGE_NATIVE, adUnitId) { success ->
