@@ -13,15 +13,21 @@ object FacebookTrackingManager {
 
     @Volatile
     private var logger: AppEventsLogger? = null
+    @Volatile
+    private var initialized = false
 
     @Synchronized
     fun initialize(context: Context, appId: String? = null, clientToken: String? = null) {
+        if (initialized) return
         appId?.takeIf(String::isNotBlank)?.let(FacebookSdk::setApplicationId)
         clientToken?.takeIf(String::isNotBlank)?.let(FacebookSdk::setClientToken)
         FacebookSdk.setAutoInitEnabled(true)
         FacebookSdk.fullyInitialize()
         logger = AppEventsLogger.newLogger(context.applicationContext)
+        initialized = true
     }
+
+    fun isInitialized(): Boolean = initialized
 
     fun logEvent(context: Context, eventName: String, params: Bundle? = null) {
         val eventLogger = logger ?: synchronized(this) {

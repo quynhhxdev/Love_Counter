@@ -2,7 +2,9 @@ package com.ads.admob.helper.appopen
 
 import android.content.Context
 import android.util.Log
+import com.ads.admob.config.EventConfig
 import com.ads.admob.event.AdjustTrackingManager
+import com.ads.admob.event.FacebookTrackingManager
 import com.ads.admob.event.FirebaseTrackingManager
 import com.ads.admob.helper.adnative.params.AdNativeMediation
 import com.google.android.gms.ads.appopen.AppOpenAd
@@ -51,6 +53,21 @@ object AppOpenAdManager {
                 )
             } catch (error: Exception) {
                 Log.e(TAG, "Failed to track App Open Ad revenue", error)
+            }
+            if (FacebookTrackingManager.isInitialized()) {
+                try {
+                    FacebookTrackingManager.logAdImpression(
+                        context.applicationContext,
+                        value.valueMicros / 1_000_000.0,
+                        adPlacement,
+                        mediationAdapter,
+                        adUnitId,
+                        "app_open",
+                        EventConfig(currencyCode = value.currencyCode)
+                    )
+                } catch (error: Exception) {
+                    Log.e(TAG, "Failed to track Facebook App Open Ad impression", error)
+                }
             }
         }
         cachedAds[adPlacement] = CachedAd(ad, System.currentTimeMillis())

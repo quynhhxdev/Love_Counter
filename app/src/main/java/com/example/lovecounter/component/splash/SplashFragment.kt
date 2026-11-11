@@ -42,6 +42,7 @@ class SplashFragment : Fragment(R.layout.fragment_splash) {
 
                     viewLifecycleOwner.lifecycleScope.launch {
                         if (canRequestAds) {
+                            (requireActivity().application as App).initializeTrackingManagers()
                             InterAdsUtils.loadInterAd(requireActivity(), adUnitId)
                             if (FirebaseConfigManager.isNativeAdsEnabled()) {
                                 NativeAdsUtils.preloadNative(

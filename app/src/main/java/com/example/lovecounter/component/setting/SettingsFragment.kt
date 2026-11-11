@@ -39,24 +39,11 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
 
         binding.btnBack.setOnClickListener { navigationManager.goBack() }
         binding.btnLanguage.setOnClickListener { navigationManager.navigate(LanguageFragment()) }
-        binding.btnRemoveAds.setOnClickListener { openIapDialog() }
         binding.btnRate.setOnClickListener { showToast(getString(R.string.rate_app_clicked)) }
         binding.btnShare.setOnClickListener { showToast(getString(R.string.share_app_clicked)) }
         binding.btnFeedback.setOnClickListener { showToast(getString(R.string.feedback_clicked)) }
         binding.btnPrivacy.setOnClickListener { showToast(getString(R.string.privacy_policy_clicked)) }
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                iapFactory.isNoAdsPurchased.collect { isPurchased ->
-                    binding.tvRemoveAds.setText(
-                        if (isPurchased) R.string.ads_removed else R.string.remove_ads_option
-                    )
-                    binding.btnRemoveAds.isEnabled = !isPurchased
-                    binding.btnRemoveAds.isClickable = !isPurchased
-                    binding.btnRemoveAds.alpha = if (isPurchased) 0.6f else 1f
-                }
-            }
-        }
     }
 
     override fun onStart() {
@@ -69,23 +56,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
         super.onStop()
     }
 
-    private fun openIapDialog() {
-        binding.btnRemoveAds.isEnabled = false
-        iapFactory.queryProduct(IapFactoryImpl.SKU_NO_ADS) { item ->
-            if (!isAdded || view == null) return@queryProduct
-
-            val isPurchased = iapFactory.isNoAdsPurchased.value
-            binding.btnRemoveAds.isEnabled = !isPurchased
-            if (isPurchased) return@queryProduct
-
-            if (item == null) {
-                showToast(getString(R.string.iap_product_unavailable))
-                return@queryProduct
-            }
-
-            showIapDialog(item)
-        }
-    }
 
     private fun showIapDialog(item: IapItem) {
         IapDialog(

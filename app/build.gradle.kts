@@ -8,6 +8,10 @@ plugins {
     id("com.google.firebase.crashlytics")
 }
 
+val adjustAppToken = providers.gradleProperty("ADJUST_APP_TOKEN").orElse("").get()
+val facebookAppId = providers.gradleProperty("FACEBOOK_APP_ID").orElse("").get()
+val facebookClientToken = providers.gradleProperty("FACEBOOK_CLIENT_TOKEN").orElse("").get()
+
 android {
     namespace = "com.example.lovecounter"
     compileSdk = 35
@@ -20,6 +24,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "ADJUST_APP_TOKEN", "\"$adjustAppToken\"")
+        buildConfigField("String", "FACEBOOK_APP_ID", "\"$facebookAppId\"")
+        buildConfigField("String", "FACEBOOK_CLIENT_TOKEN", "\"$facebookClientToken\"")
     }
 
     buildTypes {
@@ -80,6 +87,7 @@ android {
     productFlavors {
         create("appDebug") {
             manifestPlaceholders["ad_app_id"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "ADJUST_ENVIRONMENT", "\"sandbox\"")
             buildConfigField("String", "inter_splash", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "native_splash", "\"ca-app-pub-3940256099942544/2247696110\"")
             buildConfigField("String", "inter_main", "\"ca-app-pub-3940256099942544/1033173712\"")
@@ -97,6 +105,7 @@ android {
         }
         create("appProduct") {
             manifestPlaceholders["ad_app_id"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "ADJUST_ENVIRONMENT", "\"production\"")
             buildConfigField("String", "inter_splash", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "native_splash", "\"ca-app-pub-3940256099942544/2247696110\"")
             buildConfigField("String", "inter_main", "\"ca-app-pub-3940256099942544/1033173712\"")

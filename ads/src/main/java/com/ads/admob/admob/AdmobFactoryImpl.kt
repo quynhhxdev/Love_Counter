@@ -8,9 +8,11 @@ import android.util.Log
 import android.view.ViewGroup
 import com.ads.admob.AdmobManager
 import com.ads.admob.config.AfAdConfig
+import com.ads.admob.config.EventConfig
 import com.ads.admob.config.FirebaseConfigManager
 import com.ads.admob.data.ContentAd
 import com.ads.admob.event.AdjustTrackingManager
+import com.ads.admob.event.FacebookTrackingManager
 import com.ads.admob.event.FirebaseTrackingManager
 import com.ads.admob.listener.AppOpenAdCallBack
 import com.ads.admob.listener.BannerAdCallBack
@@ -109,7 +111,7 @@ class AdmobFactoryImpl private constructor() : AdmobFactory {
                 Log.w(TAG, "Adjust configuration provided without an app token; SDK not initialized")
             }
         }
-        Log.d(TAG, "Facebook & Firebase Analytics tracking setup completed.")
+        Log.d(TAG, "Firebase Analytics is ready; Facebook tracking is initialized by the app after consent.")
     }
 
     override fun isInitialized(): Boolean = initialized
@@ -319,6 +321,21 @@ class AdmobFactoryImpl private constructor() : AdmobFactory {
                             )
                         } catch (error: Exception) {
                             Log.e(TAG, "Failed to track App Open Ad revenue", error)
+                        }
+                        if (FacebookTrackingManager.isInitialized()) {
+                            try {
+                                FacebookTrackingManager.logAdImpression(
+                                    context.applicationContext,
+                                    value.valueMicros / 1_000_000.0,
+                                    adPlacement,
+                                    mediationAdapter.ifBlank { "admob" },
+                                    adUnitId,
+                                    "app_open",
+                                    EventConfig(currencyCode = value.currencyCode)
+                                )
+                            } catch (error: Exception) {
+                                Log.e(TAG, "Failed to track Facebook App Open Ad impression", error)
+                            }
                         }
                     }
                     val contentAd = ContentAd(
